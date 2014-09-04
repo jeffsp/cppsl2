@@ -4,8 +4,8 @@ out = 'build'
 
 # global definitions
 SOURCES='*.cc'
-CXXFLAGS=['-fopenmp','-Wall','-Werror','-std=c++0x']
-LIBS=[]
+CXXFLAGS=['-fopenmp','-Wall','-Werror','-std=c++0x','-Wl,--no-as-needed']
+LIBS=['pthread']
 
 # variant specific build flags
 DEBUG_CXXFLAGS=CXXFLAGS+['-g']
