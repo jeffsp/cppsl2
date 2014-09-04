@@ -6,7 +6,7 @@ default: run
 waf:
 	waf configure
 	waf
-	
+
 run: waf
 	@for i in $(TARGETS); do \
 		echo ===== $$i =====; \
