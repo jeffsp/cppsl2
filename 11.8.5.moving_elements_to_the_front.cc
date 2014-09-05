@@ -4,8 +4,6 @@
 #include <cassert>
 #include <vector>
 
-int r () { return rand () % 100; }
-
 struct value
 {
     int n;
@@ -63,7 +61,7 @@ void merge_sort (T s1, T s2)
 void process ()
 {
     vector<value> x (10000);
-    generate (begin (x), end (x), r);
+    generate (begin (x), end (x), [] { return rand () % 100; });
     vector<value> y (x);
     sort (begin (y), end (y));
     vector<value> z;
