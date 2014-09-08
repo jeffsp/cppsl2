@@ -16,8 +16,8 @@ void launch (T pol)
     // do stuff in the future
     for (int i = 0; i < 10; ++i)
     {
-        f.push_back (async (pol, []{ sleep (100); clog << '*'; }));
-        f.push_back (async (pol, []{ sleep (200); clog << '+'; }));
+        f.push_back (async (pol, []{ sleep (10); clog << '*'; }));
+        f.push_back (async (pol, []{ sleep (20); clog << '+'; }));
     }
     // get results
     for (auto &i : f)
@@ -28,10 +28,10 @@ void launch (T pol)
 void wait ()
 {
     // start a function now
-    auto f = async (std::launch::async, []{ sleep (500); });
+    auto f = async (std::launch::async, []{ sleep (50); });
     // check it about 5 times
     int n = 0;
-    while (f.wait_for (chrono::milliseconds (90)) != std::future_status::ready)
+    while (f.wait_for (chrono::milliseconds (9)) != std::future_status::ready)
         clog << ' ' << ++n;
 }
 
